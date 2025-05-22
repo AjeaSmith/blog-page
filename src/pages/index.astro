@@ -1,24 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+
+const posts = await getCollection("blog");
 ---
 
 <Layout>
-	<p class="heading-1">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit.
-	</p>
-	<p class="heading-2">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit.
-	</p>
-	<p class="heading-3">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit.
-	</p>
-	<p class="heading-4">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit.
-	</p>
-	<p class="heading-5">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit.
-	</p>
-	<p class="heading-6">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit.
-	</p>
+	
 </Layout>
