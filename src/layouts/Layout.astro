@@ -1,8 +1,8 @@
 ---
+import ThemeIcon from "@/components/ThemeIcon.astro";
 import "../styles/global.css";
 ---
 
-<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -12,16 +12,8 @@ import "../styles/global.css";
 		<title>Personal Blog</title>
 	</head>
 
-	<body class="font-sans">
+	<body class="font-sans max-w-[640px] mx-auto px-[1.875rem] md:px-0">
+		<ThemeIcon />
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
