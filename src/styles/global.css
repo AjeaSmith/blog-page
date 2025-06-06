@@ -1,74 +1,60 @@
-@import "tailwindcss";
-@import "tw-animate-css";
 /* --- DM Sans Font Faces --- */
 @font-face {
 	font-family: "DM Sans";
-	src: url("../assets/fonts/DM_Sans/static/DMSans-Regular.ttf") format("ttf");
+	/* Use 'truetype' for .ttf, but prefer woff2/woff if available */
+	src: url("/fonts/DM_Sans/static/DMSans-Regular.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
-	font-display: swap; /* Important for performance */
+	font-display: swap; /* Important: prevents blank text while loading */
 }
 @font-face {
 	font-family: "DM Sans";
-	src: url("../assets/fonts/DM_Sans/static/DMSans-Medium.ttf") format("ttf");
+	src: url("/fonts/DM_Sans/static/DMSans-Medium.ttf") format("truetype");
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap; /* Important for performance */
 }
 @font-face {
 	font-family: "DM Sans";
-	src: url("../assets/fonts/DM_Sans/static/DMSans-SemiBold.ttf") format("ttf");
+	src: url("/fonts/DM_Sans/static/DMSans-SemiBold.ttf") format("truetype");
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap; /* Important for performance */
 }
 @font-face {
 	font-family: "DM Sans";
-	src: url("../assets/fonts/DM_Sans/static/DMSans-Bold.ttf") format("ttf");
+	src: url("/fonts/DM_Sans/static/DMSans-Bold.ttf") format("truetype");
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap; /* Important for performance */
 }
 @font-face {
 	font-family: "DM Sans";
-	src: url("../assets/fonts/DM_Sans/static/DMSans-ExtraBold.ttf") format("ttf");
+	src: url("/fonts/DM_Sans/static/DMSans-ExtraBold.ttf") format("truetype");
 	font-weight: 800;
 	font-style: normal;
 	font-display: swap; /* Important for performance */
 }
 
 /* --- Fira Code Font Faces --- */
+
 @font-face {
 	font-family: "Fira Code";
-	src: url("../assets/fonts/fira-code/FiraCode-Regular.woff2") format("woff2"),
-		url("../assets/fonts/fira-code/FiraCode-Regular.woff") format("woff");
+	src: url("/fonts/Fira_Code/static/FiraCode-Regular.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
-@font-face {
-	font-family: "Fira Code";
-	src: url("../assets/fonts/Fira_Code/static/FiraCode-Regular.ttf")
-		format("ttf");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
+@import "tailwindcss";
+@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
-html.dark {
-	background-color: var(--background);
-	color: var(--foreground);
-}
-
-@theme {
-	--color-*: initial;
+@theme inline {
 	--font-body: DM Sans, sans-serif;
 	--font-fira: Fira Code, monospace;
 
-	--text-*: initial;
 	--text-2xl: 2.5rem;
 	--text-xl: 2rem;
 	--text-lg: 1.75rem;
@@ -100,82 +86,72 @@ html.dark {
 	--color-yellow-200: #fff5e1;
 	--color-red-600: #d92d20;
 	--color-red-400: #f04438;
+	--color-white: #ffffff;
 
-	--radius: 0.625rem;
-	--background: oklch(1 0 0);
-	--foreground: oklch(0.145 0 0);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.145 0 0);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.145 0 0);
-	--primary: oklch(0.205 0 0);
-	--primary-foreground: oklch(0.985 0 0);
-	--secondary: oklch(0.97 0 0);
-	--secondary-foreground: oklch(0.205 0 0);
-	--muted: oklch(0.97 0 0);
-	--muted-foreground: oklch(0.556 0 0);
-	--accent: oklch(0.97 0 0);
-	--accent-foreground: oklch(0.205 0 0);
-	--destructive: oklch(0.577 0.245 27.325);
-	--border: oklch(0.922 0 0);
-	--input: oklch(0.922 0 0);
-	--ring: oklch(0.708 0 0);
+	/* light mode */
+	--border: var(--color-neutral-200);
+	--background-color: var(--color-neutral-100);
+	--text-color: var(--color-neutral-600);
+
+	--heading-text: var(--color-neutral-700);
+
+	--header-background: var(--color-white);
+	--header-text: var(--color-neutral-800);
+
+	--menu-toggle-background: var(--color-neutral-800);
+	--menu-toggle-text: var(--color-white);
+
+	--nav-background: var(--color-white);
+
+	--icon-fill: var(--color-neutral-900);
+
+	--activeLink: var(--color-neutral-900);
 }
 
-:root {
-	--radius: 0.625rem;
-	--background: oklch(1 0 0);
-	--foreground: oklch(0.145 0 0);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.145 0 0);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.145 0 0);
-	--primary: oklch(0.205 0 0);
-	--primary-foreground: oklch(0.985 0 0);
-	--secondary: oklch(0.97 0 0);
-	--secondary-foreground: oklch(0.205 0 0);
-	--muted: oklch(0.97 0 0);
-	--muted-foreground: oklch(0.556 0 0);
-	--accent: oklch(0.97 0 0);
-	--accent-foreground: oklch(0.205 0 0);
-	--destructive: oklch(0.577 0.245 27.325);
-	--border: oklch(0.922 0 0);
-	--input: oklch(0.922 0 0);
-	--ring: oklch(0.708 0 0);
-	--chart-1: oklch(0.646 0.222 41.116);
-	--chart-2: oklch(0.6 0.118 184.704);
-	--chart-3: oklch(0.398 0.07 227.392);
-	--chart-4: oklch(0.828 0.189 84.429);
-	--chart-5: oklch(0.769 0.188 70.08);
-	--sidebar: oklch(0.985 0 0);
-	--sidebar-foreground: oklch(0.145 0 0);
-	--sidebar-primary: oklch(0.205 0 0);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.97 0 0);
-	--sidebar-accent-foreground: oklch(0.205 0 0);
-	--sidebar-border: oklch(0.922 0 0);
-	--sidebar-ring: oklch(0.708 0 0);
+html[data-theme="dark"] {
+	--border: var(--color-neutral-700);
+	--background-color: var(--color-neutral-900);
+	--text-color: var(--color-neutral-400);
+
+	--heading-text: var(--color-white);
+
+	--header-background: var(--color-neutral-800);
+	--header-text: var(--color-white);
+
+	--menu-toggle-background: var(--color-white);
+	--menu-toggle-text: var(--color-neutral-800);
+
+	--nav-background: var(--color-neutral-800);
+
+	--icon-fill: var(--color-white);
+
+	--activeLink: var(--color-white);
 }
 
-.dark {
-	--background: oklch(0.145 0 0);
-	--foreground: oklch(0.985 0 0);
-	--card: oklch(0.205 0 0);
-	--card-foreground: oklch(0.985 0 0);
-	--popover: oklch(0.205 0 0);
-	--popover-foreground: oklch(0.985 0 0);
-	--primary: oklch(0.922 0 0);
-	--primary-foreground: oklch(0.205 0 0);
-	--secondary: oklch(0.269 0 0);
-	--secondary-foreground: oklch(0.985 0 0);
-	--muted: oklch(0.269 0 0);
-	--muted-foreground: oklch(0.708 0 0);
-	--accent: oklch(0.269 0 0);
-	--accent-foreground: oklch(0.985 0 0);
-	--destructive: oklch(0.704 0.191 22.216);
-	--border: oklch(1 0 0 / 10%);
-	--input: oklch(1 0 0 / 15%);
-	--ring: oklch(0.556 0 0);
+body {
+	font-family: var(--font-body);
+	.heading-1,
+	.heading-2,
+	.heading-3,
+	.heading-4,
+	.heading-5,
+	.heading-6 {
+		color: var(--heading-text);
+		transition: all 0.5s ease;
+	}
+
+	.moon {
+		opacity: 0;
+		transform: rotate(90deg); /* Rotate out of view */
+		fill: var(--icon-fill); /* Moon color (will be hidden) */
+		transition: fill 0.5s ease, opacity 0.5s ease;
+	}
+	.sun {
+		opacity: 1;
+		transform: rotate(0deg);
+		fill: var(--icon-fill); /* Sun color for dark mode */
+		transition: fill 0.5s ease, opacity 0.5s ease;
+	}
 }
 
 .heading-1 {
@@ -224,4 +200,8 @@ html.dark {
 	font-weight: normal;
 	letter-spacing: -0.4px;
 	line-height: 146%;
+}
+
+#mobileNavLink:nth-child(4) {
+	border-bottom: 0;
 }

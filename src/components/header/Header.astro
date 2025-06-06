@@ -1,0 +1,133 @@
+---
+import ThemeToggle from "../ThemeToggle.astro";
+import { Button } from "../ui/button";
+import { MenuIcon, XIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const pathName = Astro.url.pathname;
+const navLinks = [
+	{ name: "Home", path: "/" },
+	{ name: "Blog", path: "/blog" },
+	{ name: "About", path: "/about" },
+	{ name: "Newsletter", path: "/newsletter" },
+];
+---
+
+<header>
+	<!-- --------------- PLACEHOLDER NOT STAYING --------- -->
+	<div
+		class="flex items-center justify-between gap-4 bg-(--header-background) text-(--header-text) transition-colors duration-500 ease-in relative mt-5 mb-3 rounded-[10px] p-[6px] border border-(--border)"
+	>
+		<img
+			src="src/assets/images/image-avatar.jpg"
+			class="rounded-[10px]"
+			width="40"
+			height="40"
+		/>
+		<div class="flex items-center gap-2 md:gap-4">
+			<Button id="menuToggleButton" className="shadow-none md:hidden">
+				<MenuIcon id="menuOpenButton" className="size-5" />
+				<XIcon id="menuCloseButton" className="hidden size-5" />
+			</Button>
+			<nav class="hidden md:flex">
+				<ul class="flex gap-4 cursor-pointer">
+					{
+						navLinks.map((link) => (
+							<li>
+								<a
+									href={link.path}
+									class={cn(
+										link.path === pathName &&
+											"underline decoration-3 decoration-blue-700"
+									)}
+								>
+									{link.name}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+			<ThemeToggle />
+		</div>
+	</div>
+	<nav
+		id="navMenu"
+		class={cn("shadow-lg max-h-0 overflow-hidden rounded-[10px] md:hidden")}
+	>
+		<ul
+			class="bg-(--nav-background) px-4 transition-colors duration-500 ease-in cursor-pointer"
+		>
+			{
+				navLinks.map((link) => (
+					<li
+						id="mobileNavLink"
+						class={cn(
+							"py-3 border-b border-b-(--border) transition-colors duration-500 ease-in",
+							link.path === pathName
+								? "text-(--activeLink)"
+								: "text-(--text-color)"
+						)}
+					>
+						<a href={link.path}>{link.name}</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</header>
+
+<script>
+	// NOTE: using client side navigation(view transitions): when astro navigates to a new page it removes content and scripts within the body element.
+	// JS event listeners(e.g menuButton clicked) will not be attached to new page when navigated.
+
+	function initlMenuToggle() {
+		const menuButton = document.getElementById("menuToggleButton");
+		const menuOpenButton = document.getElementById("menuOpenButton");
+		const menuCloseButton = document.getElementById("menuCloseButton");
+		const navMenu = document.getElementById("navMenu");
+
+		let isOpen = false;
+
+		menuButton?.addEventListener("click", () => {
+			isOpen = !isOpen;
+
+			navMenu?.classList.toggle("max-h-screen");
+
+			menuCloseButton?.classList.toggle("hidden");
+			menuOpenButton?.classList.toggle("hidden");
+
+			if (isOpen) {
+				menuButton?.classList.add(
+					"bg-(--menu-toggle-background)",
+					"text-(--menu-toggle-text)",
+					"transition-all",
+					"duration-500"
+				);
+				navMenu?.classList.add(
+					"border",
+					"border-(--border)",
+					"transition-none",
+					"mb-32"
+				);
+			} else {
+				menuButton?.classList.remove(
+					"bg-(--menu-toggle-background)",
+					"text-(--menu-toggle-text)",
+					"transition-all",
+					"duration-500"
+				);
+				navMenu?.classList.remove(
+					"mb-32",
+					"border",
+					"border-(--border)",
+					"transition-none"
+				);
+			}
+		});
+	}
+	initlMenuToggle();
+
+	// SOLUTION: runs after navigating to new page, re-attached JS event listeners to DOM.
+	document.addEventListener("astro:after-swap", initlMenuToggle);
+</script>

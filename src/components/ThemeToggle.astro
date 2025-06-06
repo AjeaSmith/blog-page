@@ -1,0 +1,59 @@
+---
+import { MoonIcon } from "lucide-react";
+
+import Sun from "../assets/images/icon-sun.svg";
+---
+
+<!-- Theme Toggle Button -->
+<button
+	id="themeToggle"
+	class="rounded-lg border border-(--border) bg-(--background-color) cursor-pointer transition-colors duration-500 ease-in p-2"
+>
+	<MoonIcon id="moonIcon" className="w-6 h-6 hidden" />
+	<Sun id="sunIcon" class="w-6 h-6 hidden" />
+</button>
+
+<script>
+	// Toggle theme icons and set theme attribute
+	function applyTheme(theme: string) {
+		const root = document.documentElement;
+		const moonIcon = document.getElementById("moonIcon");
+		const sunIcon = document.getElementById("sunIcon");
+
+		// Set theme attribute and persist in localStorage
+		root.setAttribute("data-theme", theme);
+		localStorage.setItem("theme", theme);
+
+		if (!moonIcon || !sunIcon) return;
+
+		if (theme === "dark") {
+			sunIcon.classList.remove("hidden");
+			moonIcon.classList.add("hidden");
+		} else {
+			sunIcon.classList.add("hidden");
+			moonIcon.classList.remove("hidden");
+		}
+	}
+
+	function setUpThemeToggle() {
+		const toggleButton = document.getElementById("themeToggle");
+		if (!toggleButton) return;
+
+		// Initialize from saved theme or fallback to light
+		let currentTheme = localStorage.getItem("theme") || "light";
+		applyTheme(currentTheme);
+
+		toggleButton.addEventListener("click", () => {
+			currentTheme = currentTheme === "light" ? "dark" : "light";
+			applyTheme(currentTheme);
+		});
+	}
+
+	// runs on page load
+	setUpThemeToggle();
+
+	// Reapply theme after Astro page transitions
+	document.addEventListener("astro:after-swap", () => {
+		setUpThemeToggle();
+	});
+</script>
