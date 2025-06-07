@@ -51,7 +51,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme inline {
+@theme {
+	--color-*: initial;
+	--font-*: initial;
+
 	--font-body: DM Sans, sans-serif;
 	--font-fira: Fira Code, monospace;
 
