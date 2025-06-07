@@ -34,11 +34,19 @@ import Header from "@/components/header/Header.astro";
 	</head>
 
 	<body
-		class="bg-(--background-color) text-(--text-color) transition-all duration-500 ease-in font-body max-w-[640px] mx-auto px-[1.875rem] md:px-0"
+		class="relative bg-(--background-color) text-(--text-color) transition-all duration-500 ease-in font-body max-w-[640px] mx-auto px-[1.875rem] md:px-0"
 	>
-		<Header />
-		<main>
-			<slot />
-		</main>
+		<div
+			class="before:content-[''] after:content-[''] relative z-10 px-4
+			before:absolute before:left-6 before:top-10 before:w-[2px] before:h-full before:bg-(--border) before:z-0
+			after:absolute after:right-6 after:top-10 after:w-[2px] after:h-full after:bg-(--border) after:z-0 before:transition-colors before:ease-in before:duration-500 after:transition-colors after:ease-in after:duration-500"
+		>
+			<span class="relative z-10">
+				<Header />
+				<main class="px-5">
+					<slot />
+				</main>
+			</span>
+		</div>
 	</body>
 </html>

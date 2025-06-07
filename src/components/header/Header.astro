@@ -13,10 +13,10 @@ const navLinks = [
 ];
 ---
 
-<header>
+<header class="mb-8">
 	<!-- --------------- PLACEHOLDER NOT STAYING --------- -->
 	<div
-		class="flex items-center justify-between gap-4 bg-(--header-background) text-(--header-text) transition-colors duration-500 ease-in relative mt-5 mb-3 rounded-[10px] p-[6px] border border-(--border)"
+		class="flex items-center justify-between gap-4 bg-(--header-background) text-(--header-text) transition-colors duration-500 ease-in relative mt-5 rounded-[10px] p-[6px] border border-(--border)"
 	>
 		<img
 			src="src/assets/images/image-avatar.jpg"
@@ -29,7 +29,7 @@ const navLinks = [
 				<MenuIcon id="menuOpenButton" className="size-5" />
 				<XIcon id="menuCloseButton" className="hidden size-5" />
 			</Button>
-			<nav class="hidden md:flex">
+			<nav class="text-16 hidden md:flex">
 				<ul class="flex gap-4 cursor-pointer">
 					{
 						navLinks.map((link) => (
@@ -53,7 +53,9 @@ const navLinks = [
 	</div>
 	<nav
 		id="navMenu"
-		class={cn("shadow-lg max-h-0 overflow-hidden rounded-[10px] md:hidden")}
+		class={cn(
+			"text-18 shadow-lg shadow-[#0806190f] max-h-0 overflow-hidden rounded-[10px] md:hidden"
+		)}
 	>
 		<ul
 			class="bg-(--nav-background) px-4 transition-colors duration-500 ease-in cursor-pointer"
@@ -65,7 +67,7 @@ const navLinks = [
 						class={cn(
 							"py-3 border-b border-b-(--border) transition-colors duration-500 ease-in",
 							link.path === pathName
-								? "text-(--activeLink)"
+								? "text-(--activeLink) text-18-semi"
 								: "text-(--text-color)"
 						)}
 					>
@@ -105,10 +107,12 @@ const navLinks = [
 					"duration-500"
 				);
 				navMenu?.classList.add(
+					"relative",
+					"z-20",
 					"border",
 					"border-(--border)",
 					"transition-none",
-					"mb-32"
+					"my-8"
 				);
 			} else {
 				menuButton?.classList.remove(
@@ -118,7 +122,7 @@ const navLinks = [
 					"duration-500"
 				);
 				navMenu?.classList.remove(
-					"mb-32",
+					"my-8",
 					"border",
 					"border-(--border)",
 					"transition-none"

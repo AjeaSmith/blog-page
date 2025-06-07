@@ -1,22 +1,60 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
 
 const posts = await getCollection("blog");
+
+import { Button } from "@/components/ui/button";
 ---
 
 <Layout>
-	<p>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui voluptatum ex
-		ut voluptas. Quis tenetur provident est aliquid perferendis rerum doloribus!
-		Vel tenetur debitis cumque laudantium earum dicta ipsam dolorem dolor
-		possimus totam quis magni et alias maiores, aspernatur ad fugiat voluptatem
-		accusamus at nostrum obcaecati esse doloribus? Excepturi, repellat. Facilis,
-		corrupti quod consequuntur laboriosam, alias vel fuga in, sapiente eum enim
-		tenetur? Mollitia commodi voluptatum quo dicta a doloremque, dignissimos
-		officia magni, corrupti praesentium quam. Quisquam harum, facilis a earum
-		tempora nam ducimus assumenda ea alias distinctio impedit deserunt debitis
-		recusandae illum. Veritatis blanditiis dolore voluptatem velit eos
-		molestias?
-	</p>
+	<section
+		class="border-b border-(--border) transition-colors ease-in duration-500"
+	>
+		<span
+			class="mb-6 relative z-10 inline-block before:content-[''] before:absolute before:top-8 before:left-0 before:right-0 before:h-[8px] before:z-0 before:w-auto before:bg-blue-500"
+		>
+			<h1 class="heading-2 relative z-10">Hi, I'm Paulina 👋</h1>
+		</span>
+		<div class="text-18">
+			<p>
+				I'm on a journey to become a front-end web developer. I love building
+				little projects, trying out new coding techniques, and sharing what I
+				learn along the way. When I'm not at my desk, you'll find me reading,
+				hiking through the mountains, or challenging myself on rock-climbing
+				walls.
+			</p>
+			<br />
+			<p>
+				I started this blog to document my progress, keep myself accountable,
+				and hopefully inspire anyone else who's learning to code. Welcome to my
+				corner of the internet, and thanks for stopping by!
+			</p>
+		</div>
+		<div class="flex gap-3 mt-6 mb-12">
+			<Button
+				className="shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border)"
+			>
+				<Icon name="logo" class="fill-(--icon-fill)" />
+			</Button>
+			<Button
+				className="shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border)"
+			>
+				<Icon name="logo-github" class="fill-(--icon-fill)" />
+			</Button>
+
+			<Button
+				className="shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border)"
+			>
+				<Icon name="logo-linkedin" class="fill-(--icon-fill)" />
+			</Button>
+
+			<Button
+				className="shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border)"
+			>
+				<Icon name="logo-frontend-mentor" class="fill-(--icon-fill)" />
+			</Button>
+		</div>
+	</section>
 </Layout>
