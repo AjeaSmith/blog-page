@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+// run this to generate static params and posts at buildtime  
+export async function getStaticPaths() {
+	const posts = await getCollection("blog");
+	return posts.map((post) => ({
+		params: { slug: post.data.slug }, // slug from the collection entry
+		props: { post }, // optional: pass the full `post` entry
+	}));
+}
+
+const { slug } = Astro.params;
+const { post } = Astro.props;
+---
+
+<Layout>
+	<h1>{post.data.title}</h1>
+	<p>{slug}</p>
+</Layout>
