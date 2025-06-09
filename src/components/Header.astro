@@ -1,6 +1,6 @@
 ---
-import ThemeToggle from "../ThemeToggle.astro";
-import { Button } from "../ui/button";
+import ThemeToggle from "./ThemeToggle.astro";
+import { Button } from "./ui/button";
 import { MenuIcon, XIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -37,6 +37,7 @@ const navLinks = [
 								<a
 									href={link.path}
 									class={cn(
+										"focus:outline-blue-500 hover:underline hover:decoration-3 hover:decoration-blue-700",
 										link.path === pathName &&
 											"underline decoration-3 decoration-blue-700"
 									)}

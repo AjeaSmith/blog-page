@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon/components";
+import { Button } from "./ui/button";
+---
+
+<footer
+	class="mt-10 mx-5 border-t border-(--border) transition-colors duration-500 ease-in"
+>
+	<div class="flex justify-between items-center mt-10">
+		<p>Made with ❤️ and ☕️</p>
+		<div class="flex gap-1">
+			<Button
+				className="focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-none"
+			>
+				<Icon
+					name="logo"
+					class="fill-(--icon-fill) hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+				/>
+			</Button>
+			<Button
+				className="focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-none"
+			>
+				<Icon
+					name="logo-github"
+					class="fill-(--icon-fill) hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+				/>
+			</Button>
+			<Button
+				className="focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-none"
+			>
+				<Icon
+					name="logo-linkedin"
+					class="fill-(--icon-fill) hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+				/>
+			</Button>
+			<Button
+				className="focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-none"
+			>
+				<Icon
+					name="logo-frontend-mentor"
+					class="fill-(--icon-fill) hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+				/>
+			</Button>
+		</div>
+	</div>
+</footer>
