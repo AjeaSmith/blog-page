@@ -10,8 +10,11 @@ const formatted = date.toLocaleDateString("en-US", {
 ---
 
 <article>
-	<h5 class="heading-5 mb-2">
-		<a href={`/posts/${post.data.slug}`}>{post.data.title}</a>
+	<h5 class="heading-5 mb-2 hover:underline hover:text-(--heading-text)">
+		<a
+			class="focus:outline-none focus:ring-2 focus:ring-blue-500"
+			href={`/posts/${post.data.slug}`}>{post.data.title}</a
+		>
 	</h5>
 	<p class="text-16 italic">{formatted}</p>
 </article>
