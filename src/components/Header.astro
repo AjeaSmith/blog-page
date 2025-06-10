@@ -37,9 +37,9 @@ const navLinks = [
 								<a
 									href={link.path}
 									class={cn(
-										"focus:outline-blue-500 hover:underline hover:decoration-3 hover:decoration-blue-700",
+										"focus:outline-blue-500 hover:underline hover:decoration-3 hover:decoration-blue-500",
 										link.path === pathName &&
-											"underline decoration-3 decoration-blue-700"
+											"underline decoration-3 decoration-blue-500"
 									)}
 								>
 									{link.name}
@@ -66,7 +66,7 @@ const navLinks = [
 					<li
 						id="mobileNavLink"
 						class={cn(
-							"py-3 border-b border-b-(--border) transition-colors duration-500 ease-in",
+							"py-3 border-b border-b-(--border) transition-colors duration-500 ease-in last:border-b-0",
 							link.path === pathName
 								? "text-(--activeLink) text-18-semi"
 								: "text-(--text-color)"

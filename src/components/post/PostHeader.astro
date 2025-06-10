@@ -1,9 +1,17 @@
 ---
-const { name } = Astro.props;
+import { cn } from "@/lib/utils";
+
+const { name, description, className } = Astro.props;
 ---
 
-<h2
-	class="heading-2 my-8 relative after:content-[''] after:absolute after:left-60 after:w-[40px] after:h-[3px] after:bottom-3 after:bg-blue-700"
->
-	{name}
-</h2>
+<section>
+	<h2
+		class={cn(
+			"heading-2 mt-8 relative after:content-[''] after:ml-2 after:absolute after:left-auto after:w-[40px] after:h-[3px] after:bottom-3 after:bg-blue-500",
+			className
+		)}
+	>
+		{name}
+	</h2>
+	{description && <p class="text-18">{description}</p>}
+</section>
