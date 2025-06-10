@@ -1,20 +1,16 @@
 ---
-const { post } = Astro.props;
+import { formatTime } from "@/lib/utils";
 
-const date = new Date(post.data.publishedAt);
-const formatted = date.toLocaleDateString("en-US", {
-	year: "numeric",
-	month: "long",
-	day: "numeric",
-});
+const { post } = Astro.props;
 ---
 
 <article>
-	<h5 class="heading-5 mb-2 hover:underline hover:text-(--heading-text)">
-		<a
-			class="focus:outline-none focus:ring-2 focus:ring-blue-500"
-			href={`/posts/${post.data.slug}`}>{post.data.title}</a
-		>
-	</h5>
-	<p class="text-16 italic">{formatted}</p>
+	<header>
+		<h5 class="heading-5 mb-2 hover:underline hover:text-(--heading-text)">
+			{post.data.title}
+		</h5>
+		<p class="text-16 italic">
+			{formatTime(post.data.publishedAt.toDateString())}
+		</p>
+	</header>
 </article>

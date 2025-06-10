@@ -1,7 +1,35 @@
 ---
+import { formatTime } from "@/lib/utils";
+import PostHeader from "@/components/post/PostHeader.astro";
 import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
 ---
 
 <Layout>
-	<h1>Blog page</h1>
+	<PostHeader
+		name="My Articles"
+		description="Below are all my recent blog posts. Click on any title to read the full article."
+		className="mb-[6px]"
+	/>
+	<section
+		class="border-t border-(--border) mt-5 transition-colors duration-500 ease-in"
+	>
+		{
+			posts.map((post) => (
+				<article class="flex flex-col gap-2 border-b border-(--border) py-5 last:border-b-0 last:pb-0 transition-border duration-500 ease-in">
+					<header class="flex flex-col gap-2">
+						<h5 class="heading-5">
+							<a href={`/post/${post.data.slug}`}>{post.data.title}</a>
+						</h5>
+						<p class="text-16 italic">
+							{formatTime(post.data.publishedAt.toDateString())}
+						</p>
+					</header>
+					<p class="text-18">{post.data.description}</p>
+				</article>
+			))
+		}
+	</section>
 </Layout>
