@@ -1,16 +1,15 @@
----
-import { MoonIcon } from "lucide-react";
-
-import Sun from "../assets/images/icon-sun.svg";
----
 
 <!-- Theme Toggle Button -->
 <button
 	id="themeToggle"
 	class="rounded-lg border border-(--border) bg-(--background-color) cursor-pointer transition-colors duration-500 ease-in p-2"
 >
-	<MoonIcon id="moonIcon" className="w-6 h-6 hidden" />
-	<Sun id="sunIcon" class="w-6 h-6 hidden" />
+	<img
+		src="/assets/images/icon-moon.svg"
+		id="moonIcon"
+		class="w-6 h-6 hidden"
+	/>
+	<img src="/assets/images/icon-sun.svg" id="sunIcon" class="w-6 h-6 hidden" />
 </button>
 
 <script>

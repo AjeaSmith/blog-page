@@ -52,9 +52,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-	--color-*: initial;
-	--font-*: initial;
-
 	--font-body: DM Sans, sans-serif;
 	--font-fira: Fira Code, monospace;
 
@@ -96,6 +93,10 @@
 	--background-color: var(--color-neutral-100);
 	--text-color: var(--color-neutral-600);
 
+	--code-bg: var(--color-neutral-200);
+	--code-text: #a138ff;
+	--code-value: #1975fb;
+
 	--heading-text: var(--color-neutral-700);
 
 	--header-background: var(--color-white);
@@ -109,12 +110,19 @@
 	--icon-fill: var(--color-neutral-900);
 
 	--activeLink: var(--color-neutral-900);
+
+	--quote: var(--color-neutral-400);
 }
 
 html[data-theme="dark"] {
 	--border: var(--color-neutral-700);
 	--background-color: var(--color-neutral-900);
 	--text-color: var(--color-neutral-400);
+
+	--code-bg: var(--color-neutral-800);
+	--code-text: #d390f3;
+
+	--code-value: #68e0ff;
 
 	--heading-text: var(--color-white);
 
@@ -129,41 +137,61 @@ html[data-theme="dark"] {
 	--icon-fill: var(--color-white);
 
 	--activeLink: var(--color-white);
+
+	--quote: var(--color-neutral-600);
+
+	.astro-code,
+	.astro-code span {
+		color: var(--shiki-dark) !important;
+		/* background-color: var(--shiki-dark-bg) !important; */
+		background-color: var(--code-bg) !important;
+	}
 }
 
 body {
 	font-family: var(--font-body);
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
-.heading-1,
-.heading-2,
-.heading-3,
-.heading-4,
-.heading-5,
-.heading-6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1rem;
 	color: var(--heading-text);
+	line-height: 1.2;
 	transition: all 0.9s ease;
 }
-.heading-1 {
+.heading-2 {
+	margin-block: 1rem;
+}
+.heading-5 {
+	margin-block: 8px;
+}
+h1 {
 	font-size: var(--text-2xl);
 	font-weight: 800;
 }
-.heading-2 {
+h2 {
 	font-size: var(--text-xl);
 	font-weight: 800;
 }
-.heading-3 {
+h3 {
 	font-size: var(--text-lg);
 	font-weight: 700;
 }
-.heading-4 {
+h4 {
 	font-size: var(--text-md);
 	font-weight: 600;
 }
-.heading-5 {
+h5 {
 	font-size: var(--text-sm);
 	font-weight: 600;
 }
-.heading-6 {
+h6 {
 	font-size: var(--text-xs);
 	font-weight: 500;
 }
@@ -183,10 +211,51 @@ body {
 	font-size: var(--text-base);
 	line-height: 130%;
 }
-.text-fira {
-	font-family: "Fira Code", monospace;
-	font-size: var(--text-base);
-	font-weight: normal;
-	letter-spacing: -0.4px;
-	line-height: 146%;
+
+.markdown-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+ol {
+	margin-block: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding-inline: 1rem;
+	list-style-type: decimal;
+}
+/* CODE STYLES */
+.astro-code,
+.astro-code span {
+	background-color: var(--code-bg) !important;
+}
+pre {
+	border: 1px solid var(--border);
+	border-radius: 15px;
+	padding: 1rem;
+	margin: 1em 0px;
+}
+
+blockquote {
+	border-left: 5px solid var(--quote);
+	padding: 0 0 0 20px;
+	margin-block: 1rem;
+	font-size: 1.333em;
+	transition: border-left 0.5s ease-in;
+}
+hr {
+	margin-block: 32px;
+	border: none;
+	border-top: 1px solid var(--border);
+	transition: border-top 0.5s ease-in;
+}
+@media (max-width: 720px) {
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1em;
+	}
 }
