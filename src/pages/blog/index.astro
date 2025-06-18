@@ -1,8 +1,8 @@
 ---
+import { getCollection } from "astro:content";
 import { formatTime } from "@/lib/utils";
 import PostHeader from "@/components/post/PostHeader.astro";
 import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
 
 const posts = await getCollection("blog");
 ---
@@ -21,13 +21,13 @@ const posts = await getCollection("blog");
 				<article class="flex flex-col gap-2 border-b border-(--border) py-5 last:border-b-0 last:pb-0 transition-border duration-500 ease-in">
 					<header class="flex flex-col gap-2">
 						<h5 class="heading-5">
-							<a href={`/post/${post.data.slug}`}>{post.data.title}</a>
+							<a href={`/blog/${post.id}`}>{post.data.title}</a>
 						</h5>
 						<p class="text-16 italic">
-							{formatTime(post.data.publishedAt.toDateString())}
+							{formatTime(`${post.data.publishedAt.toDateString()}`)}
 						</p>
+						<p class="text-18 m-0">{post.data.description}</p>
 					</header>
-					<p class="text-18">{post.data.description}</p>
 				</article>
 			))
 		}
