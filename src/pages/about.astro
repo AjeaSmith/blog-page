@@ -1,8 +1,104 @@
 ---
 import { Button } from "@/components/ui/button";
+import workspaceDesktop from "../assets/image-workspace-large.jpg";
+import workspaceSmall from "../assets/image-workspace-small.jpg";
 import Layout from "@/layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout>
-	about
+	<span
+		class="relative z-10 inline-block before:content-[''] before:absolute before:top-8 before:left-0 before:right-0 before:h-[8px] before:z-0 before:w-auto before:bg-blue-500"
+	>
+		<h1 class="relative z-10">About me</h1>
+	</span>
+
+	<section class="flex flex-col gap-6">
+		<p>
+			Hi, I’m Paulina! Ever since I can remember, I’ve had a passion for
+			creativity and problem-solving. That’s what led me to the world of
+			front-end web development. There’s something magical about seeing an idea
+			come to life in the browser—whether it’s a simple layout experiment or a
+			complex interface for a bigger project.
+		</p>
+		<p>
+			When I’m not coding, I love getting lost in a good book. My taste is
+			pretty eclectic: I’ll happily read everything from fantasy novels to
+			biographies of tech pioneers. Reading helps me unwind and often sparks new
+			ideas for my coding projects.
+		</p>
+		<p>
+			Another big passion of mine is the great outdoors. Hiking allows me to
+			disconnect from the digital world and reconnect with nature. I love
+			challenging hikes with rewarding views at the top. And if I’m not on the
+			trails, you might catch me rock climbing. The combination of mental focus
+			and physical endurance is a perfect parallel to tackling tough coding
+			challenges!
+		</p>
+		<p>Some of my favorite books:</p>
+		<ul class="list-disc pl-4">
+			<li>
+				<b>“The Pragmatic Programmer”</b> by Andrew Hunt and David Thomas (for helpful
+				insights into software development)
+			</li>
+			<li>
+				<b>“Ready Player One”</b> by Ernest Cline (for some futuristic escapism)
+			</li>
+			<li><b>“The Hobbit”</b> by J.R.R. Tolkien (for a bit of fantasy fun)</li>
+			<li><b>“Educated”</b> by Tara Westover (for incredible inspiration)</li>
+		</ul>
+		<p>
+			I absolutely love my workspace as a place that inspires me to do my best
+			work, so I thought I’d share it with you:
+		</p>
+		<picture class="rounded-md">
+			<source srcset={workspaceDesktop.src} media="(min-width: 768px)" />
+			<source srcset={workspaceSmall.src} media="(max-width: 767px)" />
+			<img
+				class="rounded-xl"
+				src={workspaceSmall.src}
+				alt="people around desktop working"
+				loading="lazy"
+				decoding="async"
+			/>
+		</picture>
+		<p>
+			I hope this blog not only documents my growth but also helps others see
+			that coding can be for everyone. Thanks for joining me on this journey!
+		</p>
+	</section>
+	<section class="mt-6">
+		<h4>Follow me</h4>
+		<div class="flex gap-3">
+			<Button
+				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
+			>
+				<Icon name="logo" class="fill-(--icon-fill)" />
+			</Button>
+			<Button
+				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
+			>
+				<Icon
+					name="logo-github"
+					class="fill-(--icon-fill) focus:outline-blue-500"
+				/>
+			</Button>
+			<Button
+				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
+			>
+				<Icon
+					name="logo-linkedin"
+					class="fill-(--icon-fill) focus:outline-blue-500"
+				/>
+			</Button>
+			<Button
+				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
+			>
+				<Icon
+					name="logo-frontend-mentor"
+					class="fill-(--icon-fill) focus:outline-none focus:ring-2 focus:ring-blue-500"
+				/>
+			</Button>
+		</div>
+	</section>
 </Layout>
