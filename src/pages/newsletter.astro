@@ -29,7 +29,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 			<label>Email Address</label>
 			<input
 				class={cn(
-					"bg-white py-3 px-[1rem] border-2 rounded-xl disabled:bg-neutral-200 focus:border-(--color-blue-500) focus:outline",
+					"bg-(--header-background) transition-colors ease-in duration-500 py-3 px-[1rem] border-2 rounded-xl disabled:bg-neutral-200 focus:border-(--color-blue-500) focus:outline",
 					inputErrors.email ? "border-(--color-red-600)" : "border-(--border)",
 					result && !result.error && "border-(--color-green-600)"
 				)}
@@ -58,7 +58,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 					</span>
 				)
 			}
-			<button class="px-6 py-3 bg-blue-500 w-[35%] rounded-xl cursor-pointer hover:bg-blue-700"
+			<button class="text-black px-6 py-3 bg-blue-500 w-[35%] rounded-xl cursor-pointer hover:bg-blue-700"
 				>Stay updated</button
 			>
 			<span>Unsubscribe anytime. No spam, I promise 🙂</span>
