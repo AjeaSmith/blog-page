@@ -7,12 +7,15 @@ import { MenuIcon, XIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const pathName = Astro.url.pathname;
+
 const navLinks = [
 	{ name: "Home", path: "/" },
 	{ name: "Blog", path: "/blog" },
 	{ name: "About", path: "/about" },
 	{ name: "Newsletter", path: "/newsletter" },
 ];
+
+console.log(pathName);
 ---
 
 <header class="mb-8">
