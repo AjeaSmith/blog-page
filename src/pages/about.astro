@@ -3,14 +3,14 @@ import { Button } from "@/components/ui/button";
 import workspaceDesktop from "../assets/image-workspace-large.jpg";
 import workspaceSmall from "../assets/image-workspace-small.jpg";
 import Layout from "@/layouts/Layout.astro";
-import { Icon } from "astro-icon/components";
+import SocialIcons from "@/components/SocialIcons.astro";
 ---
 
 <Layout>
 	<span
 		class="relative z-10 inline-block before:content-[''] before:absolute before:top-8 before:left-0 before:right-0 before:h-[8px] before:z-0 before:w-auto before:bg-blue-500"
 	>
-		<h1 class="relative z-10">About me</h1>
+		<h2 class="relative z-10">About me</h2>
 	</span>
 
 	<section class="flex flex-col gap-6">
@@ -69,36 +69,6 @@ import { Icon } from "astro-icon/components";
 	</section>
 	<section class="mt-6">
 		<h4>Follow me</h4>
-		<div class="flex gap-3">
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Icon name="logo" class="fill-(--icon-fill)" />
-			</Button>
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Icon
-					name="logo-github"
-					class="fill-(--icon-fill) focus:outline-blue-500"
-				/>
-			</Button>
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Icon
-					name="logo-linkedin"
-					class="fill-(--icon-fill) focus:outline-blue-500"
-				/>
-			</Button>
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Icon
-					name="logo-frontend-mentor"
-					class="fill-(--icon-fill) focus:outline-none focus:ring-2 focus:ring-blue-500"
-				/>
-			</Button>
-		</div>
+		<SocialIcons class="flex gap-3"/>
 	</section>
 </Layout>

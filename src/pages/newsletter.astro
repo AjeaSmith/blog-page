@@ -1,5 +1,67 @@
 ---
+export const prerender = false;
+
+import { actions } from "astro:actions";
 import Layout from "@/layouts/Layout.astro";
+import { isInputError } from "astro:actions";
+import { cn } from "@/lib/utils";
+
+const result = Astro.getActionResult(actions.newsletter);
+const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 ---
 
-<Layout> Newsletter page </Layout>
+<Layout>
+	<section>
+		<h2>Newsletter</h2>
+		<p>
+			Want to stay updated on my latest articles, coding tutorials, and personal
+			adventures? Sign up for my newsletter! It’s a simple way to keep track of
+			new posts and occasional coding tips I discover. Just drop your email in
+			the sign-up box, and I’ll send you updates whenever there’s something new
+			to share.
+		</p>
+		<h5 class="my-6">
+			I’d love to have you along for the ride and also hear about your own
+			journey!
+		</h5>
+
+		<form method="POST" action={actions.newsletter} class="flex flex-col gap-2">
+			<label>Email Address</label>
+			<input
+				class={cn(
+					"bg-white py-3 px-[1rem] border-2 rounded-xl disabled:bg-neutral-200 focus:border-(--color-blue-500) focus:outline",
+					inputErrors.email ? "border-(--color-red-600)" : "border-(--border)",
+					result && !result.error && "border-(--color-green-600)"
+				)}
+				type="text"
+				placeholder="email@example.com"
+				required
+				type="email"
+				name="email"
+				aria-describedby="error"
+			/>
+			{
+				inputErrors.email && (
+					<span class="flex gap-2">
+						<img src="/assets/images/icon-error.svg" alt="error icon" />
+						<p class="text-red-600">{inputErrors.email.join(",")}</p>
+					</span>
+				)
+			}
+			{
+				result && !result.error && (
+					<span class="flex gap-2">
+						<img src="/assets/images/icon-success.svg" alt="success icon" />
+						<p class="text-green-600">
+							You’re subscribed! Check your inbox for updates.
+						</p>
+					</span>
+				)
+			}
+			<button class="px-6 py-3 bg-blue-500 w-[35%] rounded-xl cursor-pointer hover:bg-blue-700"
+				>Stay updated</button
+			>
+			<span>Unsubscribe anytime. No spam, I promise 🙂</span>
+		</form>
+	</section>
+</Layout>
