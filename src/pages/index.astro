@@ -1,9 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Icon } from "astro-icon/components";
 
-import { Button } from "@/components/ui/button";
 import LatestPosts from "@/components/post/LatestPosts.astro";
+import SocialIcons from "@/components/SocialIcons.astro";
 ---
 
 <Layout>
@@ -30,39 +29,7 @@ import LatestPosts from "@/components/post/LatestPosts.astro";
 				corner of the internet, and thanks for stopping by!
 			</p>
 		</div>
-		<div class="flex gap-3 mt-6 mb-12">
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Icon name="logo" class="fill-(--icon-fill)" />
-			</Button>
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Icon
-					name="logo-github"
-					class="fill-(--icon-fill) focus:outline-blue-500"
-				/>
-			</Button>
-
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Icon
-					name="logo-linkedin"
-					class="fill-(--icon-fill) focus:outline-blue-500"
-				/>
-			</Button>
-
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Icon
-					name="logo-frontend-mentor"
-					class="fill-(--icon-fill) focus:outline-none focus:ring-2 focus:ring-blue-500"
-				/>
-			</Button>
-		</div>
+		<SocialIcons className="flex gap-3 mt-6 mb-12" />
 	</section>
 	<LatestPosts />
 </Layout>

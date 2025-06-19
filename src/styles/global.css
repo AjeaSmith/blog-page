@@ -139,13 +139,6 @@ html[data-theme="dark"] {
 	--activeLink: var(--color-white);
 
 	--quote: var(--color-neutral-600);
-
-	.astro-code,
-	.astro-code span {
-		color: var(--shiki-dark) !important;
-		/* background-color: var(--shiki-dark-bg) !important; */
-		background-color: var(--code-bg) !important;
-	}
 }
 
 body {
