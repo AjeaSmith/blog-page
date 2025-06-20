@@ -16,7 +16,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout>
+<Layout title={post.data.slug}>
 	<h1>{post.data.title}</h1>
 	<p class="italic my-2">Published {formatTime(`${post.data.publishedAt}`)}</p>
 	<div class="prose">

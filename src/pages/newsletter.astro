@@ -10,7 +10,7 @@ const result = Astro.getActionResult(actions.newsletter);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 ---
 
-<Layout>
+<Layout title="Newsletter">
 	<section>
 		<h2>Newsletter</h2>
 		<p>
