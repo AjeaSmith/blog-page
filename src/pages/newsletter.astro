@@ -26,8 +26,9 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 		</h5>
 
 		<form method="POST" action={actions.newsletter} class="flex flex-col gap-2">
-			<label>Email Address</label>
+			<label for="email">Email Address</label>
 			<input
+				id="email"
 				class={cn(
 					"bg-(--header-background) transition-colors ease-in duration-500 py-3 px-[1rem] border-2 rounded-xl disabled:bg-neutral-200 focus:border-(--color-blue-500) focus:outline",
 					inputErrors.email ? "border-(--color-red-600)" : "border-(--border)",
@@ -58,7 +59,8 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 					</span>
 				)
 			}
-			<button class="text-black px-6 py-3 bg-blue-500 w-[35%] rounded-xl cursor-pointer hover:bg-blue-700"
+			<button
+				class="text-black px-6 py-3 bg-blue-500 w-[35%] rounded-xl cursor-pointer hover:bg-blue-700"
 				>Stay updated</button
 			>
 			<span>Unsubscribe anytime. No spam, I promise 🙂</span>
