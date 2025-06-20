@@ -1,9 +1,5 @@
 ---
-import { Button } from "./ui/button";
-import Logo from "../assets/icons/logo.svg";
-import Github from "../assets/icons/logo-github.svg";
-import Linkedin from "../assets/icons/logo-linkedin.svg";
-import Frontend from "../assets/icons/logo-frontend-mentor.svg";
+import SocialIcons from "./SocialIcons.astro";
 ---
 
 <footer
@@ -11,31 +7,6 @@ import Frontend from "../assets/icons/logo-frontend-mentor.svg";
 >
 	<div class="flex justify-between items-center mt-10">
 		<p>Made with ❤️ and ☕️</p>
-		<div class="flex gap-1">
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Logo class="fill-(--icon-fill)" />
-			</Button>
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Github class="fill-(--icon-fill) focus:outline-blue-500" />
-			</Button>
-
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Linkedin class="fill-(--icon-fill) focus:outline-blue-500" />
-			</Button>
-
-			<Button
-				className="hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
-			>
-				<Frontend
-					class="fill-(--icon-fill) focus:outline-none focus:ring-2 focus:ring-blue-500"
-				/>
-			</Button>
-		</div>
+		<SocialIcons />
 	</div>
 </footer>

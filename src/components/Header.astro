@@ -1,7 +1,6 @@
 ---
 import NavLink from "@/components/NavLink";
 import ThemeToggle from "./ThemeToggle.astro";
-import { Button } from "./ui/button";
 import { MenuIcon, XIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -25,10 +24,14 @@ const navLinks = [
 			alt="user"
 		/>
 		<div class="flex items-center gap-2 md:gap-4">
-			<Button id="menuToggleButton" className="shadow-none md:hidden">
+			<button
+				aria-label="menuToggle"
+				id="menuToggleButton"
+				class="cursor-pointer p-2 rounded-md shadow-none md:hidden"
+			>
 				<MenuIcon id="menuOpenButton" className="size-5" />
 				<XIcon id="menuCloseButton" className="hidden size-5" />
-			</Button>
+			</button>
 			<nav class="text-16 hidden md:flex">
 				<ul class="flex gap-4 cursor-pointer">
 					{
