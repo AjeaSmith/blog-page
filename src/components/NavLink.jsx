@@ -5,7 +5,10 @@ export default function NavLink({ href, label, isMobile }) {
 	const [isActive, setIsActive] = useState(false);
 
 	useEffect(() => {
-		if (window.location.pathname === href) {
+		if (
+			window.location.pathname === href ||
+			(href !== "/" && window.location.pathname.startsWith(href))
+		) {
 			setIsActive(true);
 		}
 	}, [href]);
