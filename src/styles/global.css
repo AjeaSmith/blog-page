@@ -205,12 +205,6 @@ h6 {
 	line-height: 130%;
 }
 
-.markdown-list {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-}
-
 ol {
 	margin-block: 1rem;
 	display: flex;

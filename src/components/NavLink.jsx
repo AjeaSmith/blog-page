@@ -15,7 +15,6 @@ export default function NavLink({ href, label, isMobile }) {
 
 	return isMobile ? (
 		<li
-			id="mobileNavLink"
 			className={cn(
 				"py-3 border-b border-b-(--border) transition-colors duration-500 ease-in last:border-b-0",
 				isActive ? "text-(--activeLink) text-18-semi" : "text-(--text-color)"

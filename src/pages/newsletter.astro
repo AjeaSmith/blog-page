@@ -44,7 +44,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 			{
 				inputErrors.email && (
 					<span class="flex gap-2">
-						<img src="/assets/images/icon-error.svg" alt="error icon" />
+						<img src="/assets/images/icon-error.svg" alt="" />
 						<p class="text-red-600">{inputErrors.email.join(",")}</p>
 					</span>
 				)
@@ -52,7 +52,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 			{
 				result && !result.error && (
 					<span class="flex gap-2">
-						<img src="/assets/images/icon-success.svg" alt="success icon" />
+						<img src="/assets/images/icon-success.svg" alt="" />
 						<p class="text-green-600">
 							You’re subscribed! Check your inbox for updates.
 						</p>
@@ -60,6 +60,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 				)
 			}
 			<button
+				type="submit"
 				class="text-black px-6 py-3 bg-blue-500 w-[35%] rounded-xl cursor-pointer hover:bg-blue-700"
 				>Stay updated</button
 			>

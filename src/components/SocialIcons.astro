@@ -10,12 +10,14 @@ const { className } = Astro.props;
 
 <div class={cn("flex gap-3", className)}>
 	<button
+		type="button"
 		aria-label="logo"
 		class="size-10 cursor-pointer inline-flex items-center justify-center gap-2 hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
 	>
 		<Logo class="fill-(--icon-fill)" />
 	</button>
 	<button
+		type="button"
 		aria-label="github"
 		class="size-10 cursor-pointer inline-flex items-center justify-center gap-2 hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
 	>
@@ -23,6 +25,7 @@ const { className } = Astro.props;
 	</button>
 
 	<button
+		type="button"
 		aria-label="linkedin"
 		class="size-10 cursor-pointer inline-flex items-center justify-center gap-2 hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
 	>
@@ -30,6 +33,7 @@ const { className } = Astro.props;
 	</button>
 
 	<button
+		type="button"
 		aria-label="frontendmentor"
 		class="size-10 cursor-pointer inline-flex items-center justify-center gap-2 hover:bg-(--border) shadow-none bg-(--header-background) transition-colors ease-in duration-500 rounded-lg border border-(--border) focus:outline-none focus:ring-2 focus:ring-blue-500"
 	>

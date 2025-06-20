@@ -25,6 +25,7 @@ const navLinks = [
 		/>
 		<div class="flex items-center gap-2 md:gap-4">
 			<button
+				type="button"
 				aria-label="menuToggle"
 				id="menuToggleButton"
 				class="cursor-pointer p-2 rounded-md shadow-none md:hidden"
@@ -40,7 +41,7 @@ const navLinks = [
 								<NavLink
 									href={link.path}
 									label={link.name}
-									client:load
+									client:only="react"
 									isMobile={false}
 								/>
 							</li>
@@ -66,7 +67,7 @@ const navLinks = [
 						href={link.path}
 						label={link.name}
 						isMobile={true}
-						client:load
+						client:only="react"
 					/>
 				))
 			}
