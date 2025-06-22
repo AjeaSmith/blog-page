@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { formatTime } from "@/lib/utils";
 import PostHeader from "@/components/post/PostHeader.astro";
 import Layout from "@/layouts/Layout.astro";
+import Heading from "@/components/Heading.astro";
 
 const posts = await getCollection("blog");
 ---
@@ -20,9 +21,9 @@ const posts = await getCollection("blog");
 			posts.map((post) => (
 				<article class="flex flex-col gap-2 border-b border-(--border) py-5 last:border-b-0 last:pb-0 transition-border duration-500 ease-in">
 					<header class="flex flex-col gap-2">
-						<h5 class="heading-5">
+						<Heading tag="h5" size="h5">
 							<a href={`/blog/${post.id}`}>{post.data.title}</a>
-						</h5>
+						</Heading>
 						<p class="text-16 italic">
 							{formatTime(`${post.data.publishedAt.toDateString()}`)}
 						</p>

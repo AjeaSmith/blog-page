@@ -1,17 +1,16 @@
 ---
-import { cn } from "@/lib/utils";
+import Heading from "../Heading.astro";
 
-const { name, description, className } = Astro.props;
+const { name, description } = Astro.props;
 ---
 
 <section>
-	<h2
-		class={cn(
-			"heading-2 relative after:content-[''] after:ml-2 after:absolute after:left-auto after:w-[40px] after:h-[3px] after:bottom-3 after:bg-blue-500",
-			className
-		)}
+	<Heading
+		tag="h2"
+		size="h2"
+		class="mt-12 relative after:content-[''] after:ml-2 after:absolute after:left-auto after:w-[40px] after:h-[3px] after:bottom-3 after:bg-blue-500"
 	>
 		{name}
-	</h2>
+	</Heading>
 	{description && <p class="text-18">{description}</p>}
 </section>

@@ -3,16 +3,17 @@ import workspaceDesktop from "../assets/image-workspace-large.jpg";
 import workspaceSmall from "../assets/image-workspace-small.jpg";
 import Layout from "@/layouts/Layout.astro";
 import SocialIcons from "@/components/SocialIcons.astro";
+import Heading from "@/components/Heading.astro";
 ---
 
 <Layout title="About">
 	<span
-		class="relative z-10 inline-block before:content-[''] before:absolute before:top-7 before:left-0 before:right-0 before:h-[8px] before:z-0 before:w-auto before:bg-blue-500"
+		class="relative z-10 inline-block before:content-[''] before:absolute before:top-8 before:left-0 before:right-0 before:h-[8px] before:z-0 before:w-auto before:bg-blue-500"
 	>
-		<h2 class="relative z-10">About me</h2>
+		<Heading tag="h2" size="h2" class="relative z-10"> About me </Heading>
 	</span>
 
-	<section class="flex flex-col gap-6">
+	<section class="flex flex-col gap-6 mt-6">
 		<p>
 			Hi, I’m Paulina! Ever since I can remember, I’ve had a passion for
 			creativity and problem-solving. That’s what led me to the world of
@@ -67,7 +68,7 @@ import SocialIcons from "@/components/SocialIcons.astro";
 		</p>
 	</section>
 	<section class="mt-6">
-		<h4>Follow me</h4>
+		<Heading tag="h4" size="h4">Follow me</Heading>
 		<SocialIcons />
 	</section>
 </Layout>

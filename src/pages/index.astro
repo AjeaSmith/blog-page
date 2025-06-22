@@ -1,4 +1,5 @@
 ---
+import Heading from "@/components/Heading.astro";
 import Layout from "../layouts/Layout.astro";
 
 import LatestPosts from "@/components/post/LatestPosts.astro";
@@ -10,9 +11,11 @@ import SocialIcons from "@/components/SocialIcons.astro";
 		class="border-b border-(--border) transition-colors ease-in duration-500"
 	>
 		<span
-			class="mb-6 relative z-10 inline-block before:content-[''] before:absolute before:top-12 before:left-0 before:right-0 before:h-[8px] before:z-0 before:w-auto before:bg-blue-500"
+			class="mb-6 relative z-10 inline-block before:content-[''] before:absolute before:top-8 before:left-0 before:right-0 before:h-[8px] before:z-0 before:w-auto before:bg-blue-500"
 		>
-			<h1 class="heading-2 relative z-10">Hi, I'm Paulina 👋</h1>
+			<Heading tag="h2" size="h2" class="relative z-10">
+				Hi, I'm Paulina 👋
+			</Heading>
 		</span>
 		<div class="text-18">
 			<p>
